@@ -25,4 +25,15 @@ public class Product extends BaseEntity<Integer> {
         this.categoryId = categoryId;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + getId()+
+                ", name='" + name + '\'' +
+                ", cost=" + cost +
+                ", number=" + number +
+                ", categoryId=" + categoryId +
+                '}';
+    }
+
 }
