@@ -19,7 +19,15 @@ public abstract class  BaseRepositoryImpel <ID extends Serializable , TYPE exten
 
     @Override
     public void save(TYPE entity) throws SQLException {
+        String sql = "INSERT INTO "+ getTableName() + " "+ getColumnsName()+" VALUES "+
+                getCountOfQuestionMarkParams();
 
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            fillParamForStatement(preparedStatement, entity , false);
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            System.out.println("you did something bad");
+        }
     }
 
     @Override
