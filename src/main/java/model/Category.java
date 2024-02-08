@@ -13,4 +13,9 @@ import lombok.experimental.FieldDefaults;
 public class Category extends BaseEntity<Integer> {
 
     String name;
+
+    public Category(Integer id, String name) {
+        super(id);
+        this.name = name;
+    }
 }
