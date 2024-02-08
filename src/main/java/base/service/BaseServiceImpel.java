@@ -7,4 +7,5 @@ import java.io.Serializable;
 
 public class BaseServiceImpel <ID extends Serializable, TYPE extends BaseEntity<ID>, R extends BaseRepository<ID, TYPE>>
         implements BaseService<ID, TYPE>{
+    protected final R repository;
 }
