@@ -29,4 +29,8 @@ public class BaseServiceImpel <ID extends Serializable, TYPE extends BaseEntity<
         repository.update(entity);
     }
 
+    @Override
+    public void delete(ID id) throws SQLException {
+        repository.delete(id);
+    }
 }
