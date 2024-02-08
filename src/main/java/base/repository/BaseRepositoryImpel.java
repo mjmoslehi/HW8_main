@@ -29,7 +29,13 @@ public abstract class  BaseRepositoryImpel <ID extends Serializable , TYPE exten
 
     @Override
     public void update(TYPE entity) throws SQLException {
-
+        String update ="UPDATE "+getTableName()+" SET "+getUpdateQueryParams()+ " WHERE id = " + entity.getId();
+        try (PreparedStatement preparedStatement = connection.prepareStatement(update)){
+            fillParamForStatement(preparedStatement,entity,true);
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            System.out.println("you did something bad");
+        }
     }
 
     @Override
