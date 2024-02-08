@@ -16,4 +16,10 @@ public class Cart extends BaseEntity<Integer> {
     int productId;
     int countPro;
 
+    public Cart(Integer id, int userId, int productId, int countPro) {
+        super(id);
+        this.userId = userId;
+        this.productId = productId;
+        this.countPro = countPro;
+    }
 }
