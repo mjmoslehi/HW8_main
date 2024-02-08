@@ -17,5 +17,12 @@ public class Product extends BaseEntity<Integer> {
     int number;
     int categoryId;
 
+    public Product(Integer id, String name, int cost,int number, int categoryId) {
+        super(id);
+        this.name = name;
+        this.cost = cost;
+        this.number=number;
+        this.categoryId = categoryId;
+    }
 
 }
