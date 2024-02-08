@@ -4,6 +4,8 @@ import base.model.BaseEntity;
 
 import java.io.Serializable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public abstract class  BaseRepositoryImpel <ID extends Serializable , TYPE extends BaseEntity<ID>>
@@ -35,5 +37,17 @@ public abstract class  BaseRepositoryImpel <ID extends Serializable , TYPE exten
 
     }
 
+    public abstract String getTableName();
 
+    public abstract String getColumnsName();
+
+    public abstract String getCountOfQuestionMarkParams();
+
+    public abstract void fillParamForStatement(PreparedStatement preparedStatement ,
+                                               TYPE entity ,
+                                               boolean isCountOnly) throws SQLException;
+
+    public abstract TYPE mapResultSetToEntity(ResultSet resultSet) throws SQLException;
+
+    public abstract String getUpdateQueryParams();
 }
