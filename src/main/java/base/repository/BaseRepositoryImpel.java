@@ -24,6 +24,15 @@ public abstract class  BaseRepositoryImpel <ID extends Serializable , TYPE exten
 
     @Override
     public TYPE findById(ID id) throws SQLException {
+        String sql = "SELECT * FROM "+ getTableName() + " WHERE id = ?";
+        try(PreparedStatement preparedStatement  = connection.prepareStatement(sql)){
+            preparedStatement.setInt(1,(Integer)id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if( resultSet.next())
+                return mapResultSetToEntity(resultSet);
+        }catch (NullPointerException e){
+            System.out.println("you did something bad");
+        }
         return null;
     }
 
