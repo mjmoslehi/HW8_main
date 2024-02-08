@@ -11,4 +11,6 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 
 public class Category extends BaseEntity<Integer> {
+
+    String name;
 }
