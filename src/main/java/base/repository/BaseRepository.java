@@ -8,4 +8,6 @@ import java.sql.SQLException;
 public interface BaseRepository <ID extends Serializable , TYPE extends BaseEntity<ID>>{
 
     void save(TYPE entity)throws SQLException;
+
+    TYPE findById(ID id)throws SQLException;
 }
