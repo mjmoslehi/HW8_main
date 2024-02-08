@@ -10,4 +10,6 @@ public interface BaseService <ID extends Serializable , TYPE extends BaseEntity<
     void save(TYPE entity) throws SQLException;
 
     TYPE findById(ID id)throws SQLException;
+
+    void update(TYPE entity) throws SQLException;
 }
