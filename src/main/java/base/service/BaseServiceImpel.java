@@ -23,4 +23,10 @@ public class BaseServiceImpel <ID extends Serializable, TYPE extends BaseEntity<
     public TYPE findById(ID id) throws SQLException {
         return repository.findById(id);
     }
+
+    @Override
+    public void update(TYPE entity) throws SQLException {
+        repository.update(entity);
+    }
+
 }
