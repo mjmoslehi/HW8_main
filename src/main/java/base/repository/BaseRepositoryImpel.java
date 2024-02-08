@@ -10,6 +10,7 @@ public abstract class  BaseRepositoryImpel <ID extends Serializable , TYPE exten
 
     protected final Connection connection;
 
-
-
+    public BaseRepositoryImpel(Connection connection) {
+        this.connection = connection;
+    }
 }
