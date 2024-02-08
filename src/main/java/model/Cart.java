@@ -22,4 +22,14 @@ public class Cart extends BaseEntity<Integer> {
         this.productId = productId;
         this.countPro = countPro;
     }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "id=" + getId()+
+                ", userId=" + userId +
+                ", productId=" + productId +
+                ", countPro=" + countPro +
+                '}';
+    }
 }
