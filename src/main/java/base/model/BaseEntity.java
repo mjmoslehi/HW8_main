@@ -1,4 +1,6 @@
 package base.model;
 
-public class BaseEntity {
+import java.io.Serializable;
+
+public class BaseEntity <ID extends Serializable>{
 }
