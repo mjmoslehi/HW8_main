@@ -16,4 +16,12 @@ public class User extends BaseEntity<Integer> {
     String lastname;
     String username;
     String password;
+
+    public User(Integer id, String firstname, String lastname, String username, String password) {
+        super(id);
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.username = username;
+        this.password = password;
+    }
 }
