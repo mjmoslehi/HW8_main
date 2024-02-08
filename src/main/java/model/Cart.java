@@ -11,4 +11,9 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 
 public class Cart extends BaseEntity<Integer> {
+
+    int userId ;
+    int productId;
+    int countPro;
+
 }
