@@ -34,7 +34,13 @@ public abstract class  BaseRepositoryImpel <ID extends Serializable , TYPE exten
 
     @Override
     public void delete(ID id) throws SQLException {
-
+        String delete = "DELETE FROM "+ getTableName()+" WHERE id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(delete)){
+            preparedStatement.setInt(1,(Integer)id);
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            System.out.println("you did something bad");
+        }
     }
 
     public abstract String getTableName();
