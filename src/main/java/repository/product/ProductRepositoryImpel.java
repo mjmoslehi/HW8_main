@@ -11,4 +11,8 @@ public class ProductRepositoryImpel  extends BaseRepositoryImpel<Integer , Produ
         super(connection);
     }
 
+    @Override
+    public String getTableName() {
+        return "product";
+    }
 }
