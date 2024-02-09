@@ -5,6 +5,7 @@ import model.Cart;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CartRepositoryImpel extends BaseRepositoryImpel<Integer, Cart> implements CartRepository{
@@ -34,4 +35,15 @@ public class CartRepositoryImpel extends BaseRepositoryImpel<Integer, Cart> impl
         preparedStatement.setInt(2, entity.getProductId());
         preparedStatement.setInt(3, entity.getCountPro());
     }
+
+    @Override
+    public Cart mapResultSetToEntity(ResultSet resultSet) throws SQLException {
+        Cart cart = new Cart();
+        cart.setId(resultSet.getInt("id"));
+        cart.setUserId(resultSet.getInt("user_id"));
+        cart.setProductId(resultSet.getInt("product_id"));
+        cart.setCountPro(resultSet.getInt("count_product"));
+        return cart;
+    }
+
 }
