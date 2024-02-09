@@ -5,6 +5,7 @@ import model.Admin;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AdminRepositoryImpel extends BaseRepositoryImpel<Integer, Admin> implements AdminRepository{
@@ -34,6 +35,16 @@ public class AdminRepositoryImpel extends BaseRepositoryImpel<Integer, Admin> im
         preparedStatement.setString(3, entity.getPassword());
 
     }
+
+    public Admin mapResultSetToEntity(ResultSet resultSet) throws SQLException {
+        Admin admin = new Admin();
+        admin.setId(resultSet.getInt("id"));
+        admin.setName(resultSet.getString("name"));
+        admin.setUsername(resultSet.getString("username"));
+        admin.setPassword(resultSet.getString("password"));
+        return admin;
+    }
+
 
 
 }
