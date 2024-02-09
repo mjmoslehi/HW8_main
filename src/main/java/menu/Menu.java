@@ -1,6 +1,7 @@
 package menu;
 
 import model.Cart;
+import model.Category;
 import model.User;
 import service.admin.AdminService;
 import service.cart.CartService;
@@ -388,5 +389,13 @@ public class Menu {
         System.out.println(cartService.costOfCart(id));
     }
 
+    public void addToCategory() throws SQLException {
+        System.out.println("name");
+        String name = scanner.next();
+
+        Category category = new Category(name);
+        categoryService.save(category);
+        System.out.println(ANSI_GREEN + "adding done");
+    }
 
 }
