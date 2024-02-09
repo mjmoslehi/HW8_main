@@ -376,5 +376,10 @@ public class Menu {
 
     }
 
+    public void loadAllUserChoices() throws SQLException {
+        System.out.println("enter user id");
+        int id = scanner.nextInt();
+        cartService.loadAllUserChoices(id);
+    }
 
 }
