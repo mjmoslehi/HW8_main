@@ -1,5 +1,6 @@
 package menu;
 
+import model.Cart;
 import model.User;
 import service.admin.AdminService;
 import service.cart.CartService;
@@ -308,5 +309,30 @@ public class Menu {
             }
         }
     }
+
+    public void addToCart() throws SQLException {
+
+        boolean check = false;
+        while (!check) {
+
+            System.out.println("user id");
+            int userId = scanner.nextInt();
+
+            System.out.println("product id");
+            int productId = scanner.nextInt();
+
+
+            System.out.println("count product");
+            int number = scanner.nextInt();
+
+            if (cartService.checkingEntityOfStore(productId) + productId <= productService.checkCount(productId)) {
+
+                Cart cart = new Cart(userId, productId, number);
+                cartService.save(cart);
+                break;
+            } else System.out.println(ANSI_GREEN + "count product is more than store entity , plz do it again");
+        }
+    }
+
 
 }
