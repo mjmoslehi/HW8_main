@@ -66,4 +66,41 @@ public class CartRepositoryImpel extends BaseRepositoryImpel<Integer, Cart> impl
         }
     }
 
+    @Override
+    public Cart[] loadAllUserChoices(int userId) throws SQLException {
+
+        String loadAll = "SELECT * FROM cart where user_id =?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(loadAll ,
+                ResultSet.TYPE_SCROLL_SENSITIVE,
+                ResultSet.CONCUR_UPDATABLE)) {
+            preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            int num = 0;
+
+            while (resultSet.next()) {
+                num++;
+            }
+
+            Cart[] carts = new Cart[num];
+
+            resultSet.beforeFirst();
+
+            int i = 0;
+
+            while (resultSet.next()) {
+
+                int id = resultSet.getInt("id");
+                int user_id = resultSet.getInt("user_id");
+                int product_id = resultSet.getInt("product_id");
+                int count_product = resultSet.getInt("count_product");
+                carts[i] = new Cart(id, user_id, product_id, count_product);
+                System.out.println(carts[i]);
+                i++;
+            }
+            return carts;
+
+        }
+    }
+
 }
