@@ -11,4 +11,9 @@ public class UserRepositoryImpel  extends BaseRepositoryImpel<Integer, User> imp
         super(connection);
     }
 
+    @Override
+    public String getTableName() {
+        return "users";
+    }
+
 }
