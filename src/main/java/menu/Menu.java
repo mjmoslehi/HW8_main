@@ -382,4 +382,11 @@ public class Menu {
         cartService.loadAllUserChoices(id);
     }
 
+    public void costOfCart() throws SQLException {
+        System.out.println("user id");
+        int id = scanner.nextInt();
+        System.out.println(cartService.costOfCart(id));
+    }
+
+
 }
