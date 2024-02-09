@@ -47,4 +47,16 @@ public class AdminRepositoryImpel extends BaseRepositoryImpel<Integer, Admin> im
 
 
 
+    @Override
+    public boolean singIn(String username, String password) throws SQLException {
+        String singIn = "SELECT * FROM " + getTableName() + " WHERE username = ? AND password =?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(singIn)) {
+            preparedStatement.setString(1,username);
+            preparedStatement.setString(2,password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet.next();
+        }
+
+    }
+
 }
