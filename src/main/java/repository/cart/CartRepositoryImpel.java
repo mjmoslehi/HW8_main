@@ -51,4 +51,19 @@ public class CartRepositoryImpel extends BaseRepositoryImpel<Integer, Cart> impl
         return "user_id =? , product_id =? , count_product=?";
     }
 
+    @Override
+    public int costOfCart(int userId) throws SQLException {
+        String count = "select sum(count_product*product.cost) from cart " +
+                "join product on cart.product_id = product.id group by user_id having user_id =?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(count)) {
+            preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            int cost = 0 ;
+            if (resultSet.next()){
+                cost = resultSet.getInt(1);
+            }
+            return cost;
+        }
+    }
+
 }
