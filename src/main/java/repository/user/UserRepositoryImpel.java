@@ -21,4 +21,9 @@ public class UserRepositoryImpel  extends BaseRepositoryImpel<Integer, User> imp
         return "(firstname , lastname , username , password )";
     }
 
+    @Override
+    public String getCountOfQuestionMarkParams() {
+        return "(?,?,?,?)";
+    }
+
 }
