@@ -20,4 +20,9 @@ public class ProductRepositoryImpel  extends BaseRepositoryImpel<Integer , Produ
     public String getColumnsName() {
         return "(name ,cost ,number ,category_id)";
     }
+
+    @Override
+    public String getCountOfQuestionMarkParams() {
+        return "(?,?,?,?)";
+    }
 }
