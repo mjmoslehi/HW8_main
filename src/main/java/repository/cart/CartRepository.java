@@ -8,4 +8,6 @@ import java.sql.SQLException;
 public interface CartRepository extends BaseRepository<Integer , Cart> {
 
     int costOfCart(int userId) throws SQLException;
+
+    Cart[] loadAllUserChoices(int userId) throws SQLException;
 }
