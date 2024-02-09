@@ -1,5 +1,6 @@
 package menu;
 
+import model.User;
 import service.admin.AdminService;
 import service.cart.CartService;
 import service.category.CategoryService;
@@ -243,5 +244,24 @@ public class Menu {
             }
         }
     }
+
+    public void singUpUser() throws SQLException {
+        System.out.println("firstname");
+        String firstname = scanner.next();
+
+        System.out.println("lastname");
+        String lastname = scanner.next();
+
+        System.out.println("username");
+        String username = scanner.next();
+
+        System.out.println("password");
+        String password = scanner.next();
+
+        User user = new User(firstname, lastname, username, password);
+        userService.save(user);
+        System.out.println(ANSI_GREEN + "sing up in done");
+    }
+
 
 }
