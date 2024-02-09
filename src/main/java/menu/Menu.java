@@ -2,6 +2,7 @@ package menu;
 
 import model.Cart;
 import model.Category;
+import model.Product;
 import model.User;
 import service.admin.AdminService;
 import service.cart.CartService;
@@ -396,6 +397,27 @@ public class Menu {
         Category category = new Category(name);
         categoryService.save(category);
         System.out.println(ANSI_GREEN + "adding done");
+    }
+
+    public void addToProduct() throws SQLException {
+
+
+        System.out.println("name");
+        String name = scanner.next();
+
+        System.out.println("cost");
+        int cost = scanner.nextInt();
+
+        System.out.println("count in store");
+        int count = scanner.nextInt();
+
+        System.out.println("category id");
+        int categoryId = scanner.nextInt();
+
+        Product product = new Product(name, cost, count, categoryId);
+        productService.save(product);
+
+
     }
 
 }
