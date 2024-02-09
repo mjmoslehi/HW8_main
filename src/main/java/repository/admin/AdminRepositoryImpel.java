@@ -10,4 +10,9 @@ public class AdminRepositoryImpel extends BaseRepositoryImpel<Integer, Admin> im
     public AdminRepositoryImpel(Connection connection) {
         super(connection);
     }
+
+    @Override
+    public String getTableName() {
+        return "admin";
+    }
 }
