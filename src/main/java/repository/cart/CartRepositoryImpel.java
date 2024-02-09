@@ -103,4 +103,21 @@ public class CartRepositoryImpel extends BaseRepositoryImpel<Integer, Cart> impl
         }
     }
 
+    @Override
+    public int checkingEntityOfStore(int productId) throws SQLException {
+
+        String check = "select   sum(count_product) as sum from cart " +
+                "group by product_id having product_id = ? ;";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(check)){
+            preparedStatement.setInt(1,productId);
+            ResultSet resultSet =preparedStatement.executeQuery();
+            int sum = 0 ;
+            if (resultSet.next()) {
+                sum = resultSet.getInt(1);
+            }
+            return sum;
+        }
+    }
+
 }
