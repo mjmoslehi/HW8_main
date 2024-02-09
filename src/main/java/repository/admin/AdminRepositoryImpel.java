@@ -15,4 +15,9 @@ public class AdminRepositoryImpel extends BaseRepositoryImpel<Integer, Admin> im
     public String getTableName() {
         return "admin";
     }
+
+    @Override
+    public String getColumnsName() {
+        return "(name , username , password)";
+    }
 }
