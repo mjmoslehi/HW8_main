@@ -16,4 +16,9 @@ public class CategoryRepositoryImpel  extends BaseRepositoryImpel<Integer , Cate
         return "category";
     }
 
+    @Override
+    public String getColumnsName() {
+        return "(name)";
+    }
+
 }
