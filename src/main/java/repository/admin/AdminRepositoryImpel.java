@@ -32,4 +32,8 @@ public class AdminRepositoryImpel extends BaseRepositoryImpel<Integer, Admin> im
         preparedStatement.setString(1, entity.getName());
         preparedStatement.setString(2, entity.getUsername());
         preparedStatement.setString(3, entity.getPassword());
+
+    }
+
+
 }
