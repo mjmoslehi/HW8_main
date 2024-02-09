@@ -15,4 +15,9 @@ public class CartRepositoryImpel extends BaseRepositoryImpel<Integer, Cart> impl
     public String getTableName() {
         return "cart";
     }
+
+    @Override
+    public String getColumnsName() {
+        return "(user_id , product_id , count_product)";
+    }
 }
