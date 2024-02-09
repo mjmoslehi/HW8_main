@@ -14,3 +14,9 @@ create table if not exists users
     username  varchar,
     password  varchar
 );
+
+create table if not exists category
+(
+    id   serial primary key,
+    name varchar
+);
