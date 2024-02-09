@@ -49,5 +49,9 @@ public class ProductRepositoryImpel  extends BaseRepositoryImpel<Integer , Produ
         return product;
     }
 
+    @Override
+    public String getUpdateQueryParams() {
+        return "name =? , cost = ? , number = ? , category_id = ?";
+    }
 
 }
