@@ -334,5 +334,12 @@ public class Menu {
         }
     }
 
+    public void deleteFromCart() throws SQLException {
+        System.out.println("id of cart");
+        int id = scanner.nextInt();
+        cartService.delete(id);
+        System.out.println(ANSI_YELLOW + "deleting done");
+    }
+
 
 }
