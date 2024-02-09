@@ -17,4 +17,8 @@ public class ProductServiceImpel extends BaseServiceImpel<Integer, Product, Prod
         return repository.loadAll();
     }
 
+    @Override
+    public int checkCount(int id) throws SQLException {
+        return repository.checkCount(id);
+    }
 }
