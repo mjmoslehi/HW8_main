@@ -5,3 +5,12 @@ create table if not exists admin
     username varchar,
     password varchar
 );
+
+create table if not exists users
+(
+    id        serial primary key,
+    firstname varchar,
+    lastname  varchar,
+    username  varchar,
+    password  varchar
+);
