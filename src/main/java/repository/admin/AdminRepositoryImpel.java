@@ -20,4 +20,9 @@ public class AdminRepositoryImpel extends BaseRepositoryImpel<Integer, Admin> im
     public String getColumnsName() {
         return "(name , username , password)";
     }
+
+    @Override
+    public String getCountOfQuestionMarkParams() {
+        return "(?,?,?)";
+    }
 }
