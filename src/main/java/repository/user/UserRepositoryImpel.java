@@ -16,4 +16,9 @@ public class UserRepositoryImpel  extends BaseRepositoryImpel<Integer, User> imp
         return "users";
     }
 
+    @Override
+    public String getColumnsName() {
+        return "(firstname , lastname , username , password )";
+    }
+
 }
