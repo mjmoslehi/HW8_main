@@ -341,5 +341,40 @@ public class Menu {
         System.out.println(ANSI_YELLOW + "deleting done");
     }
 
+    public void editCart() throws SQLException {
+
+        boolean check = false;
+        while (!check) {
+            try {
+                System.out.println("cart id");
+                int id = scanner.nextInt();
+                Cart cart = cartService.findById(id);
+
+                System.out.println("user id");
+                int userid = scanner.nextInt();
+                cart.setUserId(userid);
+
+                System.out.println("product id");
+                int productId = scanner.nextInt();
+                cart.setProductId(productId);
+
+                System.out.println("count of product");
+                int count = scanner.nextInt();
+                cart.setCountPro(count);
+
+                if (cartService.checkingEntityOfStore(productId) <= productService.checkCount(productId)) {
+
+                    cartService.update(cart);
+                    break;
+
+                } else
+                    System.out.println(ANSI_YELLOW + "count product is more than store entity , plz do it again");
+            } catch (NullPointerException e) {
+                System.out.println("null point exception");
+            }
+        }
+
+    }
+
 
 }
