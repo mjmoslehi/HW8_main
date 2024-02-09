@@ -56,4 +56,10 @@ public class ApplicationContext {
 
     }
 
+    public static AdminService getAdminService(){ return ADMIN_SERVICE;}
+    public static CategoryService getCategoryService(){return CATEGORY_SERVICE;}
+    public static CartService getCartService (){return CART_SERVICE;}
+    public static ProductService getProductService(){return PRODUCT_SERVICE;}
+    public static UserService getUserService(){return USER_SERVICE;}
+
 }
