@@ -263,5 +263,27 @@ public class Menu {
         System.out.println(ANSI_GREEN + "sing up in done");
     }
 
+    public void singInUser() throws SQLException {
+
+        boolean check = false;
+        while (!check) {
+            System.out.println("username");
+            String username = scanner.next();
+
+            System.out.println("password");
+            String password = scanner.next();
+
+            boolean user = userService.singIn(username, password);
+
+            if (user) {
+                System.out.println("user found");
+                break;
+            } else {
+                System.out.println("user didn't find , try again");
+            }
+        }
+    }
+
+
 
 }
