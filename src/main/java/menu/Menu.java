@@ -284,6 +284,8 @@ public class Menu {
         }
     }
 
-
+    public void loadAllProducts() throws SQLException {
+        System.out.println(productService.loadAll());
+    }
 
 }
