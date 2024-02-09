@@ -90,4 +90,17 @@ public class ProductRepositoryImpel extends BaseRepositoryImpel<Integer, Product
         }
     }
 
+    @Override
+    public int checkCount(int id) throws SQLException {
+        String check ="SELECT number FROM product where id =?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(check)){
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            int num = 0 ;
+            if (resultSet.next()){
+                num = resultSet.getInt(1);
+            }
+            return num;
+        }
+    }
 }
