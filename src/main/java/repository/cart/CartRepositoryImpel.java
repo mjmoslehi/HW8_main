@@ -1,4 +1,7 @@
 package repository.cart;
 
-public class CartRepositoryImpel {
+import base.repository.BaseRepositoryImpel;
+import model.Cart;
+
+public class CartRepositoryImpel extends BaseRepositoryImpel<Integer, Cart> implements CartRepository{
 }
