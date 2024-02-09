@@ -21,4 +21,9 @@ public class CartServiceImpel extends BaseServiceImpel<Integer , Cart, CartRepos
     public Cart[] loadAllUserChoices(int userId) throws SQLException {
         return repository.loadAllUserChoices(userId);
     }
+
+    @Override
+    public int checkingEntityOfStore(int productId) throws SQLException {
+        return repository.checkingEntityOfStore(productId);
+    }
 }
