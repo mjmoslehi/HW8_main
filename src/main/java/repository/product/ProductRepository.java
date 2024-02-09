@@ -9,4 +9,5 @@ public interface ProductRepository extends BaseRepository<Integer, Product> {
 
     Product[] loadAll() throws SQLException;
 
+    int checkCount(int id)throws SQLException;
 }
