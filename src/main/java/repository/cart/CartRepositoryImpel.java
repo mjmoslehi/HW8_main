@@ -20,4 +20,9 @@ public class CartRepositoryImpel extends BaseRepositoryImpel<Integer, Cart> impl
     public String getColumnsName() {
         return "(user_id , product_id , count_product)";
     }
+
+    @Override
+    public String getCountOfQuestionMarkParams() {
+        return "(? ,? ,? )";
+    }
 }
