@@ -46,4 +46,9 @@ public class CartRepositoryImpel extends BaseRepositoryImpel<Integer, Cart> impl
         return cart;
     }
 
+    @Override
+    public String getUpdateQueryParams() {
+        return "user_id =? , product_id =? , count_product=?";
+    }
+
 }
