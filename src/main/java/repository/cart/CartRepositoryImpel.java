@@ -11,4 +11,8 @@ public class CartRepositoryImpel extends BaseRepositoryImpel<Integer, Cart> impl
         super(connection);
     }
 
+    @Override
+    public String getTableName() {
+        return "cart";
+    }
 }
