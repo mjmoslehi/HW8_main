@@ -5,6 +5,7 @@ import model.Category;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CategoryRepositoryImpel  extends BaseRepositoryImpel<Integer , Category> implements CategoryRepository{
@@ -31,6 +32,14 @@ public class CategoryRepositoryImpel  extends BaseRepositoryImpel<Integer , Cate
     @Override
     public void fillParamForStatement(PreparedStatement preparedStatement, Category entity, boolean isCountOnly) throws SQLException {
         preparedStatement.setString(1,entity.getName());
+    }
+
+    @Override
+    public Category mapResultSetToEntity(ResultSet resultSet) throws SQLException {
+        Category category = new Category();
+        category.setId(resultSet.getInt("id"));
+        category.setName(resultSet.getString("name"));
+        return category;
     }
 
 }
