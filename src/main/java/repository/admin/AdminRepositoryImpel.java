@@ -45,7 +45,10 @@ public class AdminRepositoryImpel extends BaseRepositoryImpel<Integer, Admin> im
         return admin;
     }
 
-
+    @Override
+    public String getUpdateQueryParams() {
+        return null;
+    }
 
     @Override
     public boolean singIn(String username, String password) throws SQLException {
