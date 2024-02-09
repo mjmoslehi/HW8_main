@@ -7,6 +7,7 @@ import service.product.ProductService;
 import service.user.UserService;
 import utility.ApplicationContext;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Menu {
@@ -22,5 +23,225 @@ public class Menu {
     private final CategoryService categoryService = ApplicationContext.getCategoryService();
     private final ProductService productService = ApplicationContext.getProductService();
     private final UserService userService = ApplicationContext.getUserService();
+
+    public void publicMenu() throws SQLException {
+        int num = 0;
+        boolean check = false;
+        while (!check) {
+
+            System.out.println(ANSI_BLUE + "****Welcome****");
+            System.out.println(ANSI_YELLOW + "1-if you are User");
+            System.out.println(ANSI_YELLOW + "2-if you are Admin");
+            num = scanner.nextInt();
+
+//todo user
+
+            if (num == 1) {
+
+                System.out.println(ANSI_BLUE + "so you are User :) ");
+                System.out.println(ANSI_YELLOW + "1-singUp");
+                System.out.println(ANSI_YELLOW + "2-singIn");
+                num = scanner.nextInt();
+
+                while (!check) {
+
+                    if (num == 1) {
+
+                        System.out.println(ANSI_BLUE + "you are singing up");
+                        singUpUser();
+                        break;
+
+                    } else if (num == 2) {
+
+                        System.out.println(ANSI_BLUE + "you are singing in");
+                        singInUser();
+                        break;
+
+                    } else {
+                        System.out.println(ANSI_GREEN + "it is not true");
+                    }
+                }
+
+                System.out.println(ANSI_BLUE + "our all products");
+                loadAllProducts();
+
+                while (!check) {
+
+                    System.out.println(ANSI_YELLOW + "1-add to cart");
+                    System.out.println(ANSI_YELLOW + "2-delete from cart");
+                    System.out.println(ANSI_YELLOW + "3-edit cart");
+                    System.out.println(ANSI_GREEN + "4-exit from user services");
+                    num = scanner.nextInt();
+
+//todo adding
+                    if (num == 1) {
+
+                        while (!check) {
+
+                            System.out.println(ANSI_BLUE + "your cart :");
+                            loadAllUserChoices();
+                            System.out.println(ANSI_BLUE + "the cost of your cart");
+                            costOfCart();
+                            System.out.println(ANSI_BLUE + "you are adding to cart");
+                            addToCart();
+                            System.out.println(ANSI_YELLOW + "1-add cart again");
+                            System.out.println(ANSI_YELLOW + "2-adding to cart is enough");
+                            num = scanner.nextInt();
+
+                            if (num == 1) {
+                                System.out.println(ANSI_BLUE + "how many times do you want to add to cart ?");
+                                num = scanner.nextInt();
+                                for (int i = 0; i < num; i++) {
+                                    System.out.println(ANSI_BLUE + "you are adding to cart");
+                                    addToCart();
+                                }
+                                System.out.println(ANSI_BLUE + "the cost of your cart");
+                                costOfCart();
+                                break;
+
+                            } else if (num == 2) break;
+                            else {
+                                System.out.println("not valid");
+                            }
+                        }
+                    }
+
+//todo deleting
+                    else if (num == 2) {
+
+                        while (!check) {
+
+                            System.out.println(ANSI_BLUE + "your cart :");
+                            loadAllUserChoices();
+                            System.out.println(ANSI_BLUE + "the cost of your cart");
+                            costOfCart();
+                            System.out.println(ANSI_BLUE + "you are deleting a cart");
+                            deleteFromCart();
+                            System.out.println(ANSI_YELLOW + "1-delete cart again");
+                            System.out.println(ANSI_YELLOW + "2-deleting cart is enough");
+                            num = scanner.nextInt();
+
+                            if (num == 1) {
+                                System.out.println(ANSI_BLUE + "how many times do you want to delete a cart ?");
+                                num = scanner.nextInt();
+                                for (int i = 0; i < num; i++) {
+                                    System.out.println(ANSI_BLUE + "you are deleting a cart");
+                                    deleteFromCart();
+                                }
+                                System.out.println(ANSI_BLUE + "the cost of your cart");
+                                costOfCart();
+                                break;
+
+                            } else if (num == 2) break;
+                            else {
+                                System.out.println("not valid");
+                            }
+                        }
+                    }
+//todo editing
+                    else if (num == 3) {
+                        while (!check) {
+
+                            System.out.println(ANSI_BLUE + "your cart :");
+                            loadAllUserChoices();
+                            System.out.println(ANSI_BLUE + "the cost of your cart");
+                            costOfCart();
+                            System.out.println(ANSI_BLUE + "you are editing cart");
+                            editCart();
+                            System.out.println(ANSI_YELLOW + "1-edit cart again");
+                            System.out.println(ANSI_YELLOW + "2-editing cart is enough");
+                            num = scanner.nextInt();
+
+                            if (num == 1) {
+                                System.out.println(ANSI_BLUE + "how many times do you want to edit cart ?");
+                                num = scanner.nextInt();
+                                for (int i = 0; i < num; i++) {
+                                    System.out.println(ANSI_BLUE + "you are editing cart");
+                                    editCart();
+                                }
+                                System.out.println(ANSI_BLUE + "the cost of your cart");
+                                costOfCart();
+                                break;
+
+                            } else if (num == 2) break;
+                            else {
+                                System.out.println("not valid");
+                            }
+                        }
+                    }
+//todo break user
+                    else if (num == 4) {
+                        System.out.println(ANSI_GREEN + "exiting from user service");
+                        break;
+                    } else System.out.println(ANSI_GREEN + "not valid, try again");
+                }
+//todo admin
+            } else if (num == 2) {
+
+                System.out.println(ANSI_BLUE + "so you are Admin :) ");
+                System.out.println(ANSI_YELLOW + "plz first do singIn");
+                adminSingIn();
+                while (!check) {
+                    System.out.println(ANSI_YELLOW + "1-add category");
+                    System.out.println(ANSI_YELLOW + "2-add product");
+                    System.out.println(ANSI_YELLOW + "3-exit admin services");
+                    num = scanner.nextInt();
+//todo add category
+                    if (num == 1) {
+
+                        while (!check) {
+
+                            System.out.println(ANSI_BLUE + "you are adding category");
+                            addToCategory();
+                            System.out.println(ANSI_YELLOW + "1-add category again");
+                            System.out.println(ANSI_YELLOW + "2-adding category is enough");
+                            num = scanner.nextInt();
+                            if (num == 1) {
+                                System.out.println(ANSI_BLUE + "how many times do you want to add category ?");
+                                num = scanner.nextInt();
+                                for (int i = 0; i < num; i++) {
+                                    System.out.println(ANSI_BLUE + "you are adding category");
+                                    addToCategory();
+                                }
+                                break;
+
+                            } else if (num == 2) break;
+                            else {
+                                System.out.println("not valid");
+                            }
+                        }
+                    }
+//todo add product
+                    else if (num == 2) {
+
+                        while (!check) {
+
+                            System.out.println(ANSI_BLUE + "you are adding product");
+                            addToProduct();
+                            System.out.println(ANSI_YELLOW + "1-add product again");
+                            System.out.println(ANSI_YELLOW + "2-adding product is enough");
+                            num = scanner.nextInt();
+                            if (num == 1) {
+                                System.out.println(ANSI_BLUE + "how many times do you want to add product ?");
+                                num = scanner.nextInt();
+                                for (int i = 0; i < num; i++) {
+                                    System.out.println(ANSI_BLUE + "you are adding product");
+                                    addToProduct();
+                                }
+                                break;
+
+                            } else if (num == 2) break;
+                            else {
+                                System.out.println("not valid");
+                            }
+                        }
+                    } else if (num == 3) {
+                        System.out.println(ANSI_GREEN + "exiting from admin services");
+                        break;
+                    } else System.out.println("not valid");
+                }
+            }
+        }
+    }
 
 }
