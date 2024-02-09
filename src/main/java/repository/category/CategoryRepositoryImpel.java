@@ -10,4 +10,10 @@ public class CategoryRepositoryImpel  extends BaseRepositoryImpel<Integer , Cate
     public CategoryRepositoryImpel(Connection connection) {
         super(connection);
     }
+
+    @Override
+    public String getTableName() {
+        return "category";
+    }
+
 }
