@@ -21,4 +21,8 @@ public class CategoryRepositoryImpel  extends BaseRepositoryImpel<Integer , Cate
         return "(name)";
     }
 
+    @Override
+    public String getCountOfQuestionMarkParams() {
+        return "(?)";
+    }
 }
