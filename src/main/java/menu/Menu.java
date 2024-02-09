@@ -288,4 +288,25 @@ public class Menu {
         System.out.println(productService.loadAll());
     }
 
+    public void adminSingIn() throws SQLException {
+
+        boolean check = false;
+        while (!check) {
+            System.out.println("username");
+            String username = scanner.next();
+
+            System.out.println("password");
+            String password = scanner.next();
+
+            boolean user = adminService.singIn(username, password);
+
+            if (user) {
+                System.out.println("user found");
+                break;
+            } else {
+                System.out.println("user didn't find , try again");
+            }
+        }
+    }
+
 }
