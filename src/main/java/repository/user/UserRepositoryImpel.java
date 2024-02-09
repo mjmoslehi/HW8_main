@@ -48,4 +48,10 @@ public class UserRepositoryImpel  extends BaseRepositoryImpel<Integer, User> imp
         return user;
     }
 
+    @Override
+    public String getUpdateQueryParams() {
+        return "firstname = ? , lastname  =? , username = ? , password = ?";
+    }
+
+
 }
